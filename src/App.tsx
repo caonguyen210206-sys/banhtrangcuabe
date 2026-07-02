@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Heart, Utensils } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 export default function App() {
   const [isEaten, setIsEaten] = useState(false);
+  const [isForgiven, setIsForgiven] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#FFF0F5] relative flex flex-col items-center justify-center p-8 font-sans overflow-hidden">
@@ -96,15 +97,45 @@ export default function App() {
                 <span className="px-4 py-2 bg-[#E8F5E9] text-[#43A047] rounded-full text-sm font-bold border border-[#C8E6C9]">🥭 Xoài Chua</span>
               </motion.div>
 
-              <motion.button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                onClick={() => setIsEaten(false)}
-                className="px-6 py-3 bg-[#FFF0F3] text-[#FF85A1] hover:text-[#FF477E] hover:bg-[#FFD1DC] rounded-full font-bold transition-colors mt-4 cursor-pointer"
-              >
-                Quay lại
-              </motion.button>
+              <div className="flex flex-col items-center gap-4 mt-4 w-full">
+                <AnimatePresence mode="wait">
+                  {!isForgiven ? (
+                    <motion.button
+                      key="forgive-btn"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      transition={{ delay: 1 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setIsForgiven(true)}
+                      className="w-full sm:w-auto bg-[#FF477E] hover:bg-[#FF1A5E] text-white text-xl font-bold px-8 py-4 rounded-full shadow-[0_6px_0px_#B91C1C] border-b-4 border-[#991B1B] active:translate-y-2 active:shadow-none transition-all flex items-center justify-center gap-3 cursor-pointer"
+                    >
+                      <Heart className="w-6 h-6 fill-white animate-pulse" />
+                      Hết giận anh nha em bé 🥺
+                    </motion.button>
+                  ) : (
+                    <motion.div
+                      key="forgiven-msg"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="text-2xl font-black text-[#FF477E] flex items-center gap-2 bg-[#FFF0F3] px-6 py-3 rounded-full"
+                    >
+                      Yêu em nhất trên đời! 🥰💖
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2 }}
+                  onClick={() => { setIsEaten(false); setTimeout(() => setIsForgiven(false), 500); }}
+                  className="px-6 py-3 bg-[#FFF0F3] text-[#FF85A1] hover:text-[#FF477E] hover:bg-[#FFD1DC] rounded-full font-bold transition-colors cursor-pointer"
+                >
+                  Quay lại
+                </motion.button>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -122,7 +153,7 @@ export default function App() {
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-[#FF85A1] rounded-full flex items-center justify-center text-white font-bold text-xl">✓</div>
-              <span className="text-[#FF477E] font-bold">Đã chuẩn bị xong phần quà siêu cute</span>
+              <span className="text-[#FF477E] font-bold">Đã chuẩn bị xong bánh tráng trộn siêu ngon</span>
             </div>
             <div className="flex -space-x-3">
               <div className="w-8 h-8 rounded-full border-2 border-white bg-pink-200 flex items-center justify-center text-[10px]">🍓</div>
