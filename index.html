@@ -5,22 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Banh trang cute</title>
 <style>
-body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:system-ui,sans-serif;background:linear-gradient(135deg,#fff7df,#ffe6ef);color:#5d321f;text-align:center}.card{width:min(92vw,520px);padding:32px;border-radius:32px;background:#ffffffcc;box-shadow:0 20px 50px #0002}button{border:0;border-radius:999px;padding:16px 26px;font-size:24px;font-weight:800;color:#fff;background:linear-gradient(135deg,#ff7eb3,#ff5f6d,#ffb347);cursor:pointer;box-shadow:0 10px 0 #d65365}.plate{display:none;margin:26px auto 0;font-size:76px;animation:pop .4s ease}.msg{display:none;margin-top:18px;font-size:28px;font-weight:900;color:#e64663}.show{display:block}@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:system-ui,sans-serif;background:linear-gradient(135deg,#fff7df,#ffe6ef);color:#5d321f;text-align:center}.card{width:min(92vw,520px);padding:32px;border-radius:32px;background:#ffffffcc;box-shadow:0 20px 50px #0002}.btn{display:inline-block;border:0;border-radius:999px;padding:16px 26px;font-size:24px;font-weight:800;color:#fff;background:linear-gradient(135deg,#ff7eb3,#ff5f6d,#ffb347);cursor:pointer;box-shadow:0 10px 0 #d65365}.btn:active{transform:translateY(6px);box-shadow:0 4px 0 #d65365}.plate{display:none;margin:26px auto 0;font-size:76px;animation:pop .4s ease}.msg{display:none;margin-top:18px;font-size:28px;font-weight:900;color:#e64663}.hint{font-size:18px}#toggle{position:absolute;left:-9999px}#toggle:checked~.plate,#toggle:checked~.msg{display:block}@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
 </style>
 </head>
 <body>
 <main class="card">
 <h1>Banh trang tron cute</h1>
-<p>Bam nut de hien mon ngon nha</p>
-<button id="btn">Bam de xem banh trang</button>
-<div id="plate" class="plate">🥢🌶️🥗🦐😋</div>
-<div id="msg" class="msg">cute an xong bot gian nha</div>
+<p class="hint">Bam nut de hien mon ngon nha</p>
+<input id="toggle" type="checkbox">
+<label class="btn" for="toggle">Bam de xem banh trang</label>
+<div class="plate">🥢🌶️🥗🦐😋</div>
+<div class="msg">cute an xong bot gian nha</div>
 </main>
-<script>
-const btn=document.getElementById('btn');
-const plate=document.getElementById('plate');
-const msg=document.getElementById('msg');
-btn.onclick=function(){plate.classList.add('show');msg.classList.add('show')};
-</script>
 </body>
 </html>
