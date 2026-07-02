@@ -1,0 +1,6 @@
+{
+  "name": "Bánh Tráng Trộn Cute",
+  "description": "Một trang web dễ thương để dỗ dành bằng bánh tráng trộn.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
